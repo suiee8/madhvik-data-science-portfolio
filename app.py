@@ -853,4 +853,4 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-html(HTML_PAGE, height=2600, scrolling=True)
+html(HTML_PAGE, height=700, scrolling=True)
