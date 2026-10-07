@@ -811,6 +811,17 @@ HTML_PAGE = """
         window.addEventListener('scroll', onScroll, { passive: true });
       }
 
+      function initAnchorNavigation() {
+        document.addEventListener('click', (event) => {
+          const link = event.target.closest('a[href^="#"]');
+          if (!link) return;
+          const target = document.querySelector(link.getAttribute('href'));
+          if (!target) return;
+          event.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
+
       function initServices() {
         document.querySelectorAll('.service .more').forEach((btn) => {
           btn.addEventListener('click', () => {
@@ -834,6 +845,7 @@ HTML_PAGE = """
       initWork();
       initTestimonials();
       initDock();
+      initAnchorNavigation();
       initServices();
       initCopy();
     </script>
